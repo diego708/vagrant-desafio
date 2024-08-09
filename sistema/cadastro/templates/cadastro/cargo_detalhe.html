@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+th, td {
+  border: 1px solid black;
+  border-radius: 30px;
+  border-color: DodgerBlue;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+h1 {
+  text-align: center;
+  color: #3385ff;
+}
+h3 {
+  text-align: center;
+  color: #3385ff;
+}
+a {
+  color: DodgerBlue;
+  text-decoration: none;
+}
+a.ex1 {
+  color: DodgerBlue;
+  text-decoration: none;
+  margin-right: 13%
+}
+</style>
+</head>
+<body>
+
+<h1>Sistema para Gestão de Atividades</h1>
+<h1>Cadastro de Cargos</h1>
+
+<table class="center" style="width:80%">
+    <tr>
+        <th>
+            <form method="POST" class="post-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Cadastrar</button>
+            </form>
+            <br>
+        </th>
+    </tr>
+</table>
+<br>
+<a class="ex1" href="/cargo" style="float: right;">Voltar</a>
+</body>
+</html>

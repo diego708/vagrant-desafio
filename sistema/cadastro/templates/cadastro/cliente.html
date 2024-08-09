@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+li {
+  border: 1px solid black;
+  border-radius: 30px;
+  border-color: DodgerBlue;
+  margin-left: 80px;
+  text-align: left;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+h1 {
+  text-align: center;
+  color: #3385ff;
+}
+h3 {
+  text-align: center;
+  color: #3385ff;
+}
+a {
+  color: DodgerBlue;
+  text-decoration: none;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+a.ex1 {
+  color: DodgerBlue;
+  text-decoration: none;
+  margin-right: 13%
+}
+</style>
+</head>
+<body>
+
+<h1>Sistema para Gestão de Atividades</h1>
+<h1>Cadastro de Clientes</h1>
+
+<table class="center" style="width:80%">
+    <tr>
+        <th>
+            <ul>
+                {% if data %}
+                {% csrf_token %}
+                {% for cliente in data %}
+                    <li><a href="/cliente_editar/{{ cliente.id }}">{{ cliente.nome }}</a><a href="/cliente_excluir_item/{{ cliente.id }}" style="float: right;"> Excluir </a></li>
+                    <br>
+                {% endfor %}
+                {% else %}
+                    <h3>Nenhum Cliente Cadastrado</h3>
+                {% endif %} 
+            </ul>
+        </th>
+    </tr>
+    <tr>
+      <th>
+        <h3><a href="/cliente_detalhe">Novo Cliente</a></h3>
+      </th>
+    </tr>
+</table>
+<br>
+<a class="ex1" href="/cadastro" style="float: right;">Voltar</a>
+
+</body>
+</html>
